@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "*.js": "javascriptreact",
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xutility": "cpp",
+        "ostream": "cpp",
+        "list": "cpp"
+    }
+}

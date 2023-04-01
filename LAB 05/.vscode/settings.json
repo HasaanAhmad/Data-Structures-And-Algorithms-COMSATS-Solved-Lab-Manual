@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "*.js": "javascriptreact",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "xlocale": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "streambuf": "cpp",
+        "xiosbase": "cpp",
+        "xlocnum": "cpp",
+        "xmemory": "cpp",
+        "xtr1common": "cpp"
+    }
+}
