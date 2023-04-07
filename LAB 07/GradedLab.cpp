@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 // Graded Lab 1
+
 /*
-Implement the methods developed in Activity 1 for Dynmaic Queue i.e. Linked Implementation of the
-Queue.
+Implement the methods developed in Activity 1 for Dynmaic Queue i.e. Linked Implementation of the Queue.
 */
+
 class Node
 {
 public:
@@ -104,7 +105,7 @@ public:
         rear->data = 0;
     }
 };
-
+// Graded lab 2
 class Deque{
     public:
     Node *front;
@@ -216,7 +217,6 @@ int main()
 
     // Implimenting Deque
 
-    // 
     cout<<"Deque" << endl;
 
     Deque d;
@@ -225,6 +225,14 @@ int main()
     d.enqueueFront(3);
     d.enqueueFront(4);
     d.enqueueFront(5);
+    d.print();
+    cout << d.getSize() << endl;
+    d.dequeueFront();
+    d.print();
+    cout << d.getSize() << endl;
+    cout << d.isEmpty() << endl;
+    cout << d.getFront() << endl;
+    cout << d.getRear() << endl;
     d.print();
     
 
