@@ -105,7 +105,7 @@ public:
         rear->data = 0;
     }
 };
-// Graded lab 2
+
 class Deque{
     public:
     Node *front;
@@ -226,15 +226,6 @@ int main()
     d.enqueueFront(4);
     d.enqueueFront(5);
     d.print();
-    cout << d.getSize() << endl;
-    d.dequeueFront();
-    d.print();
-    cout << d.getSize() << endl;
-    cout << d.isEmpty() << endl;
-    cout << d.getFront() << endl;
-    cout << d.getRear() << endl;
-    d.print();
     
-
     return 0;
 }

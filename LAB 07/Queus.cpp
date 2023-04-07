@@ -94,89 +94,86 @@ public:
     }
 
 };
+
 class Deque{
     public:
-    int size;
-    int *q;
-    int front;
-    int rear;
-    Deque(){
-        size = 10;
-        q = new int[size];
-        front = rear = -1;
-    }
-    Deque(int size){
-        this->size = size;
-        q = new int[this->size];
-        front = rear = -1;
-    }
-    bool isEmpty(){
-        if(front == rear){
-            return true;
+        int size;
+        int *q;
+        int front;
+        int rear;
+        Deque(){
+            size = 10;
+            q = new int[size];
+            front = rear = -1;
         }
-        return false;
-    }
-    bool isFull(){
-        if(rear == size - 1){
-            return true;
+        Deque(int size){
+            this->size = size;
+            q = new int[this->size];
+            front = rear = -1;
         }
-        return false;
-    }
-    void insertFront(int x){
-        if(isFull()){
-            cout << "Queue is Full" << endl;
-        }
-        else{
-            for(int i = rear; i > front; i--){
-                q[i + 1] = q[i];
+        bool isEmpty(){
+            if(front == rear){
+                return true;
             }
-            front++;
-            q[front] = x;
-            rear++;
+            return false;
         }
-    }
-    void insertRear(int x){
-        if(isFull()){
-            cout << "Queue is Full" << endl;
-        }
-        else{
-            rear++;
-            q[rear] = x;
-        }
-    }
-    int deleteFront(){
-        int x = -1;
-        if(isEmpty()){
-            cout << "Queue is Empty" << endl;
-        }
-        else{
-            x = q[front + 1];
-            for(int i = front + 1; i < rear; i++){
-                q[i] = q[i + 1];
+        bool isFull(){
+            if(rear == size - 1){
+                return true;
             }
-            rear--;
+            return false;
         }
-        return x;
-    }
-    int deleteRear(){
-        int x = -1;
-        if(isEmpty()){
-            cout << "Queue is Empty" << endl;
+        void enqueueFront(int x){
+            if(isFull()){
+                cout << "Queue is Full" << endl;
+            }
+            else{
+                for(int i = rear; i > front; i--){
+                    q[i + 1] = q[i];
+                }
+                front++;
+                q[front] = x;
+                rear++;
+            }
         }
-        else{
-            x = q[rear];
-            rear--;
+        void enqueueRear(int x){
+            if(isFull()){
+                cout << "Queue is Full" << endl;
+            }
+            else{
+                rear++;
+                q[rear] = x;
+            }
         }
-        return x;
-    }
-    void display(){
-        for(int i = front + 1; i <= rear; i++){
-            cout << q[i] << " ";
+        int dequeueFront(){
+            int x = -1;
+            if(isEmpty()){
+                cout << "Queue is Empty" << endl;
+            }
+            else{
+                x = q[front + 1];
+                front++;
+            }
+            return x;
         }
-        cout << endl;
-    }
+        int dequeueRear(){
+            int x = -1;
+            if(isEmpty()){
+                cout << "Queue is Empty" << endl;
+            }
+            else{
+                x = q[rear];
+                rear--;
+            }
+            return x;
+        }
+        void display(){
+            for(int i = front + 1; i <= rear; i++){
+                cout << q[i] << " ";
+            }
+            cout << endl;
+        }
 };
-
 
 int main()
 {
@@ -208,10 +205,11 @@ int main()
     q3.enqueue(45);
     q3.enqueue(55);
     q3.display();
-    cout<<"Shift Left"<<endl;
-    q3.shiftLeft(q3.front,q3.rear);
-    q3.display();
+// Deque implementation
 
+
+
+ 
 
 
     
