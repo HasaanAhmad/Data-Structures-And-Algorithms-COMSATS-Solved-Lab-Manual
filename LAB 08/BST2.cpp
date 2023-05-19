@@ -13,7 +13,6 @@ public:
         right = NULL;
     }
 };
-
 Node *insert(Node *root, int data)
 {
     if (root == NULL)
@@ -50,12 +49,17 @@ Node *search(Node *root, int key)
         return search(root->right, key);
     }
 }
+static int leafNodeCount = 0;
 
 void inOrder(Node *root)
 {
+
     if (root == NULL)
     {
         return;
+    }
+    if(root->left == NULL && root->right == NULL){
+        leafNodeCount++;
     }
     inOrder(root->left);
     cout << root->data << " ";
@@ -143,6 +147,7 @@ int main()
     root = insert(root, 2);
     inOrder(root);
     cout << endl;
+    cout<<leafNodeCount<<endl;
     preOrder(root);
     cout << endl;
     postOrder(root);
