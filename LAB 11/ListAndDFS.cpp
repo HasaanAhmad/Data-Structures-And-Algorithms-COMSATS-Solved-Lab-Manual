@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+#include <climits>
+
 using namespace std;
 // implimenting the graph by adjacency list
 struct node{
@@ -86,7 +88,7 @@ void BFS(graph* Graph,int src){
     bool visited[Graph->V];
     for(int i=0;i<Graph->V;i++){
         visited[i] = false;
-    }
+    }   
     Q.push(src);
     visited[src] = true;
     while(!Q.empty()){
@@ -103,8 +105,45 @@ void BFS(graph* Graph,int src){
         }
     }
 }
-
-
+// Finding the shortest path from a source to all other vertices using Dijsktra's Algorithm
+int minDistance(int dist[],bool visited[]){
+    int min = INT_MAX,min_index;
+    for(int i=0;i<5;i++){
+        if(!visited[i] && dist[i]<=min){
+            min = dist[i];
+            min_index = i;
+        }
+    }
+    return min_index;
+}
+void printSolution(int dist[],int V){
+    cout<<"Vertex Distance from Source"<<endl;
+    for(int i=0;i<V;i++){
+        cout<<i<<" "<<dist[i]<<endl;
+    }
+}
+void Dijsktra(graph* Graph,int src){
+    int dist[Graph->V];
+    bool visited[Graph->V];
+    for(int i=0;i<Graph->V;i++){
+        dist[i] = INT_MAX;
+        visited[i] = false;
+    }
+    dist[src] = 0;
+    for(int i=0;i<Graph->V;i++){
+        int u = minDistance(dist,visited);
+        visited[u] = true;
+        node* temp = Graph->adjList[u];
+        while(temp){
+            if(!visited[temp->data] && dist[u]!=INT_MAX && dist[u]+temp->data<dist[temp->data]){
+                dist[temp->data] = dist[u]+temp->data;
+            }
+            temp = temp->next;
+        }
+    }
+    printSolution(dist,Graph->V);
+}
+// Prims Algorithm
 
 
 int main(){
@@ -131,6 +170,9 @@ int main(){
     cout<<"BFS: ";
     BFS(Graph,0);
     cout<<endl;
+    cout<<"Shortest Path: "<<endl;
+    Dijsktra(Graph,0);
+
     
     
     
